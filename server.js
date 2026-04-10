@@ -22,6 +22,7 @@ app.get('/api/todos', (req, res) => {
 
 // Create todo
 app.post('/api/todos', (req, res) => {
+  
   const { title } = req.body;
   if (!title) return res.status(400).json({ error: 'Title is required' });
   
