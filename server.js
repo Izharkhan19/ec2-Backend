@@ -15,6 +15,10 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Basic Node.js backend is running!' });
 });
 
+app.get('/api/auto-deploy', (req, res) => {
+  res.json({ status: 'OK', message: 'Basic Node.js backend is auto-deployed!' });
+});
+
 // Get all todos
 app.get('/api/todos', (req, res) => {
   res.json({ status: 'OK', data: todos, message: 'Data Fetched' });
