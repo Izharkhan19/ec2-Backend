@@ -2,23 +2,38 @@ name: Deploy to EC2
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main   # change to "master" if your repo uses master
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy via SSH
+      - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-       script: |
+          script: |
+            echo "🚀 Starting deployment..."
+
             cd /home/ubuntu/ec2-Backend
+
+            echo "📥 Pulling latest code..."
             git fetch --all
             git reset --hard origin/main
-            npm install
-            pm2 restart my-app
+
+            echo "📦 Installing dependencies..."
+            npm install --force
+
+            echo "🔄 Restarting PM2 app..."
+            pm2 delete my-app || true
+            pm2 start server.js --name my-app
+            pm2 save
+
+            echo "📊 PM2 Status:"
             pm2 list
+
+            echo "✅ Deployment finished!"
