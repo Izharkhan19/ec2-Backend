@@ -17,7 +17,7 @@ app.get('/api/health', (req, res) => {
 });
 
 app.get('/api/healthcheck', (req, res) => {
-  res.json({ status: 'OK', message: 'Hello Izhar heaalthcheck!' });
+  res.json({ status: 'OK', message: 'LATEST UPDATED CODE!' });
 });
 
 // Get all todos
