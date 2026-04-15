@@ -15,9 +15,10 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
+       script: |
             cd /home/ubuntu/ec2-Backend
-            git reset --hard
-            git pull origin main
+            git fetch --all
+            git reset --hard origin/main
             npm install
             pm2 restart my-app
+            pm2 list

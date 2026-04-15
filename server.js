@@ -12,7 +12,7 @@ const todos = []; // In-memory storage (simple for now)
 
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Basic Node.js backend is running!' });
+  res.json({ status: 'OK', message: 'backend is running!' });
 });
 
 app.get('/api/healthcheck', (req, res) => {
@@ -22,7 +22,7 @@ app.get('/api/healthcheck', (req, res) => {
 
 // Get all todos
 app.get('/api/todos', (req, res) => {
-  res.json({ status: 'OK', data: todos, message: 'Data Fetched' });
+  res.json({ status: 'OK', data: todos, message: 'Todos Data Fetched' });
 });
 
 // Create todo
@@ -33,7 +33,7 @@ app.post('/api/todos', (req, res) => {
 
   const todo = { id: Date.now(), title, completed: false };
   todos.push(todo);
-  res.status(201).json({ status: 'OK', data: todo, message: 'Record Saved' });
+  res.status(201).json({ status: 'OK', data: todo, message: 'Todos Record Saved' });
 });
 
 const PORT = process.env.PORT || 5000;
