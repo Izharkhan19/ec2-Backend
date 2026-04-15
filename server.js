@@ -16,7 +16,7 @@ app.get('/api/health', (req, res) => {
 });
 
 app.get('/api/healthcheck', (req, res) => {
-  res.json({ status: 'OK', message: 'Basic Node.js healthcheck!' });
+  res.json({ status: 'OK', message: 'Hello healthcheck!' });
 });
 
 // Get all todos
