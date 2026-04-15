@@ -17,19 +17,19 @@ app.get('/api/health', (req, res) => {
 });
 
 app.get('/api/healthcheck', (req, res) => {
-  res.json({ status: 'OK', message: 'Hello healthcheck!' });
+  res.json({ status: 'OK', message: 'Hello Izhar heaalthcheck!' });
 });
 
 // Get all todos
 app.get('/api/todos', (req, res) => {
-  res.json({ status: 'OK', data: todos, message: 'Todos Data Fetched' });
+  res.json({ status: 'OK', data: todos, message: 'Hello Todos Data Fetched' });
 });
 
 // Create todo
 app.post('/api/todos', (req, res) => {
 
   const { title } = req.body;
-  if (!title) return res.status(400).json({ error: 'Title is required' });
+  if (!title) return res.status(400).json({ error: 'Hello  Title is required' });
 
   const todo = { id: Date.now(), title, completed: false };
   todos.push(todo);
