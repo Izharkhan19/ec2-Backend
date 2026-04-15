@@ -16,7 +16,7 @@ app.get('/api/health', (req, res) => {
 });
 
 app.get('/api/auto-deploy', (req, res) => {
-  res.json({ status: 'OK', message: 'Basic Node.js backend is auto-deployed!' });
+  res.json({ status: 'OK', message: 'Basic Node.js backend is auto-deployed again!' });
 });
 
 // Get all todos
