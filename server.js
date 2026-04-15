@@ -17,18 +17,18 @@ app.get('/api/health', (req, res) => {
 
 // Get all todos
 app.get('/api/todos', (req, res) => {
-  res.json(todos);
+  res.json({ status: 'OK', data: todos, message: 'Data Fetched' });
 });
 
 // Create todo
 app.post('/api/todos', (req, res) => {
-  
+
   const { title } = req.body;
   if (!title) return res.status(400).json({ error: 'Title is required' });
-  
+
   const todo = { id: Date.now(), title, completed: false };
   todos.push(todo);
-  res.status(201).json(todo);
+  res.status(201).json({ status: 'OK', data: todo, message: 'Record Saved' });
 });
 
 const PORT = process.env.PORT || 5000;
