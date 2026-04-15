@@ -20,7 +20,6 @@ app.get('/api/healthcheck', (req, res) => {
   res.json({ status: 'OK', message: 'Hello healthcheck!' });
 });
 
-
 // Get all todos
 app.get('/api/todos', (req, res) => {
   res.json({ status: 'OK', data: todos, message: 'Todos Data Fetched' });
