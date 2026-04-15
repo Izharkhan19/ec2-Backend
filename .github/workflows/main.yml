@@ -16,7 +16,8 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /home/ubuntu/YOUR_REPO
+            cd /home/ubuntu/ec2-Backend
+            git reset --hard
             git pull origin main
             npm install
             pm2 restart my-app
